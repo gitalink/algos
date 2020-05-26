@@ -8,12 +8,10 @@ class QueueWithMax {
 
   add(num) {
     this.queue.unshift(num)
-    console.log('NEW QUEUE', this.queue)
     while(this.maxDeque[0] < num) {
       this.maxDeque.shift()
     }
     this.maxDeque.unshift(num)
-    console.log('NEW MAX', this.maxDeque)
     return this
   }
 
@@ -33,13 +31,33 @@ class QueueWithMax {
   }
 }
 
-const myQueue = new QueueWithMax
-myQueue.add(1)
-myQueue.add(2)
-myQueue.add(5)
-myQueue.remove()
-myQueue.add(4)
-myQueue.remove()
-myQueue.add(3)
+//given an array on integers and a number k, find a max in each sliding window of k elements
+// A = [4,6,5,2,4,7] and K = 3, windows are as follows:
+// [4,6,5,2,4,7] : Max = 6
+// [4,6,5,2,4,7] : Max = 6
+// [4,6,5,2,4,7] : Max = 5
+// [4,6,5,2,4,7] : Max = 7
+// Output: 6,6,5,7
 
-console.log('Queue', myQueue.queue, 'MaxDeue', myQueue.maxDeque)
+function slidingWindowMax(arr, k) {
+  const result = []
+  const window = new QueueWithMax
+
+  for (let i = 0; i < k; i++) {
+    window.add(arr[i])
+  }
+  result.push(window.max())
+
+  for (let j = k; j< arr.length; j++) {
+    window.remove()
+    window.add(arr[j])
+    result.push(window.max())
+  }
+  return result
+}
+
+console.log(slidingWindowMax([4,6,5,2,4,7], 3))
+
+
+
+
