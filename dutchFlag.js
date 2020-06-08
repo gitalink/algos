@@ -24,7 +24,6 @@ function dutchFlag(arr) {
 
     if (arr[i] === 1) i+=1
 
-
     if (arr[i] === 0) {
       swap(redPointer, i, arr)
       i+=1
