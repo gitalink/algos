@@ -16,20 +16,10 @@ function plusMinus(num) {
 
  const strings = []
  const sum = numsArr[0]
- console.log('numsArr', numsArr)
  plusMinusHelper(numsArr, 1, sum, '+', '', strings)
- console.log('after plus branch', strings)
  plusMinusHelper(numsArr, 1, sum, '-', '', strings)
- console.log(strings)
- if (!strings.length) {
-   return 'not possible'
- }
- else if (strings.length === 1) {
-   return strings[0]
- }
- else {
-  return moreMinus(strings)
- }
+
+ return strings.length ? moreMinus(strings) : 'not possible'
 
 }
 
@@ -45,9 +35,6 @@ function plusMinusHelper(arr, index, sum = arr[1], sign, signs = '', strings) {
   }
 
   if (index === arr.length-1 && sum === 0) {
-    console.log('sign', sign)
-    console.log('INDEX', index)
-    console.log('SIGNS', signs)
     strings.push(signs)
     return true
   }
