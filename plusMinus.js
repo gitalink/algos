@@ -12,20 +12,14 @@
 
 function plusMinus(num) {
   const numsArr = num.toString().split('').map((el) => {return Number(el)})
-
-
- const strings = []
- const sum = numsArr[0]
- plusMinusHelper(numsArr, 1, sum, '+', '', strings)
- plusMinusHelper(numsArr, 1, sum, '-', '', strings)
-
- return strings.length ? moreMinus(strings) : 'not possible'
-
+  const strings = []
+  const sum = numsArr[0]
+  plusMinusHelper(numsArr, 1, sum, '+', '', strings)
+  plusMinusHelper(numsArr, 1, sum, '-', '', strings)
+  return strings.length ? moreMinus(strings) : 'not possible'
 }
 
 function plusMinusHelper(arr, index, sum = arr[1], sign, signs = '', strings) {
-  //base cases
-  // console.log('INDEX', index)
   signs += sign
   if (sign === '+') {
     sum += arr[index]
@@ -39,8 +33,6 @@ function plusMinusHelper(arr, index, sum = arr[1], sign, signs = '', strings) {
     return true
   }
   if (index === arr.length-1 && sum !== 0) {
-    // console.log('INDEX', index)
-    // console.log('SUM', sum)
     return false
   }
   plusMinusHelper(arr, index+1, sum, '+', signs, strings)
@@ -75,3 +67,4 @@ function countMinus(string) {
 console.log(plusMinus(35132))
 console.log(plusMinus(26712))
 console.log(plusMinus(199))
+
