@@ -41,7 +41,7 @@ class MinHeap {
         this.heap[1] = this.heap[this.heap.length-1]
         this.heap.splice(this.heap.length - 1)
 
-        if (this.heap.length === 3) {
+       if (this.heap.length === 3) {
             if (this.heap[1] > this.heap[2]) {
                 [this.heap[1], this.heap[2]] = [this.heap[2], this.heap[1]]
             }
