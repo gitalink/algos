@@ -61,7 +61,5 @@ console.log(lRUCache.put(1, 2)); // {2=6, 1=5}
 console.log(lRUCache.get(1));    // return 1:5
 console.log(lRUCache.get(2)); // {2:6}
 
-["LRUCache","put","put","put","put","get","get"]
-[[2],       [2,1],[1,1],[2,3],[4,1],[1],[2]]
-
-2:3, 1:1, 4:1
+// ["LRUCache","put","put","put","put","get","get"]
+// [[2],       [2,1],[1,1],[2,3],[4,1],[1],[2]]
